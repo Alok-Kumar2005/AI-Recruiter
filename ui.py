@@ -45,7 +45,7 @@ def display_header():
                 {logo_html}
             </div>
             <div class="title-container" style="text-align: center;">
-                <h1>Euron Recruitment Agent</h1>
+                <h1>AI-Powered Recruitment Agent</h1>
                 <p>Smart Resume Analysis & Interview Preparation System</p>
             </div>
         </div>
@@ -222,7 +222,7 @@ def setup_sidebar():
         st.header("Configuration")
         
         st.subheader("API Keys")
-        groq_api_key = st.text_input("GROQ API KAY", type="password")
+        gemini_api_key = st.text_input("Gemini API KEY", type="password")
         
         st.markdown("---")
         
@@ -242,13 +242,13 @@ def setup_sidebar():
         
         st.markdown("""
         <div style="text-align: center; margin-top: 20px;">
-            <p>🚀 Euron Recruitment Agent</p>
+            <p>🚀 AI-Powered Recruitment Agent</p>
             <p style="font-size: 0.8rem; color: #666;">v1.0.0</p>
         </div>
         """, unsafe_allow_html=True)
         
         return {
-            "openai_api_key": groq_api_key,
+            "gemini_api_key": gemini_api_key,
             "theme_color": theme_color
         }
 
@@ -560,7 +560,7 @@ def interview_questions_section(has_resume, generate_questions_func=None):
                 questions = generate_questions_func(question_types, difficulty, num_questions)
                 
                 # Create content for download
-                download_content = f"# Euron Recruitment - Interview Questions\n\n"
+                download_content = f"# AI-Powered Recruitment - Interview Questions\n\n"
                 download_content += f"Difficulty: {difficulty}\n"
                 download_content += f"Types: {', '.join(question_types)}\n\n"
                 
@@ -586,7 +586,7 @@ def interview_questions_section(has_resume, generate_questions_func=None):
                     st.markdown("---")
                     questions_bytes = download_content.encode()
                     b64 = base64.b64encode(questions_bytes).decode()
-                    href = f'<a class="download-btn" href="data:text/markdown;base64,{b64}" download="euron_interview_questions.md">📝 Download All Questions</a>'
+                    href = f'<a class="download-btn" href="data:text/markdown;base64,{b64}" download="ai_powered_interview_questions.md">📝 Download All Questions</a>'
                     st.markdown(href, unsafe_allow_html=True)
     
     st.markdown('</div>', unsafe_allow_html=True)
@@ -612,7 +612,7 @@ def resume_improvement_section(has_resume, improve_resume_func=None):
                 improvements = improve_resume_func(improvement_areas, target_role)
                 
                 # Create content for download
-                download_content = f"# Euron Recruitment - Resume Improvement Suggestions\n\nTarget Role: {target_role if target_role else 'Not specified'}\n\n"
+                download_content = f"# AI-Powered Recruitment - Resume Improvement Suggestions\n\nTarget Role: {target_role if target_role else 'Not specified'}\n\n"
                 
                 for area, suggestions in improvements.items():
                     with st.expander(f"Improvements for {area}", expanded=True):
@@ -657,7 +657,7 @@ def resume_improvement_section(has_resume, improve_resume_func=None):
                 st.markdown("---")
                 report_bytes = download_content.encode()
                 b64 = base64.b64encode(report_bytes).decode()
-                href = f'<a class="download-btn" href="data:text/markdown;base64,{b64}" download="euron_resume_improvements.md">📝 Download All Suggestions</a>'
+                href = f'<a class="download-btn" href="data:text/markdown;base64,{b64}" download="ai_powered_resume_improvements.md">📝 Download All Suggestions</a>'
                 st.markdown(href, unsafe_allow_html=True)
     
     st.markdown('</div>', unsafe_allow_html=True)
@@ -687,7 +687,7 @@ def improved_resume_section(has_resume, get_improved_resume_func=None):
                     # Text file download
                     resume_bytes = improved_resume.encode()
                     b64 = base64.b64encode(resume_bytes).decode()
-                    href = f'<a class="download-btn" href="data:file/txt;base64,{b64}" download="euron_improved_resume.txt">📄 Download as TXT</a>'
+                    href = f'<a class="download-btn" href="data:file/txt;base64,{b64}" download="ai_powered_improved_resume.txt">📄 Download as TXT</a>'
                     st.markdown(href, unsafe_allow_html=True)
                 
                 with col2:
@@ -697,11 +697,11 @@ def improved_resume_section(has_resume, get_improved_resume_func=None):
 {improved_resume}
 
 ---
-Resume enhanced by Euron Recruitment Agent
+Resume enhanced by AI-Powered Recruitment Agent
 """
                     md_bytes = md_content.encode()
                     md_b64 = base64.b64encode(md_bytes).decode()
-                    md_href = f'<a class="download-btn" href="data:text/markdown;base64,{md_b64}" download="euron_improved_resume.md">📝 Download as Markdown</a>'
+                    md_href = f'<a class="download-btn" href="data:text/markdown;base64,{md_b64}" download="ai_powered_improved_resume.md">📝 Download as Markdown</a>'
                     st.markdown(md_href, unsafe_allow_html=True)
     
     st.markdown('</div>', unsafe_allow_html=True)
